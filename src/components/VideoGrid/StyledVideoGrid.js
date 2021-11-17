@@ -24,6 +24,6 @@ export default styled.section`
         right: 0;
         text-align: center;
         letter-spacing: 2px;
-        background-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.4);
     }
 `;

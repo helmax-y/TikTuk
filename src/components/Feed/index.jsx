@@ -8,7 +8,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
-import getData from '../../utils/getData';
+import getData from '../../api/getData';
 import StyledFeed from './StyledFeed';
 import Loader from '../../common/Loader';
 import ErrorToast from '../../common/ErrorToast';
@@ -53,8 +53,10 @@ const Feed = () => {
                 <video
                     src={post.videoUrl}
                     className="player"
+                    controls={false}
                     autoPlay
                     loop
+                    playsInline
                     onClick={handlePausePlay}
                     onPlaying={() => setIsLoading(false)}
                     onWaiting={() => setIsLoading(true)}

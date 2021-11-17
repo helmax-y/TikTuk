@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import StyledProfile from './StyledProfile';
 import VideoGrid from '../VideoGrid';
 import ErrorToast from '../../common/ErrorToast';
-import getData from '../../utils/getData';
+import getData from '../../api/getData';
 
 const Profile = () => {
     const [{ user = {}, stats = {} }, setUser] = useState({});

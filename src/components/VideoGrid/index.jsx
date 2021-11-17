@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import StyledVideoGrid from './StyledVideoGrid';
 import Loader from '../../common/Loader';
-import getData from '../../utils/getData';
-import userFeed from '../../mockData/userFeed.json';
+import getData from '../../api/getData';
 
 const VideoGrid = ({ setIsError }) => {
     const [videos, setVideos] = useState([]);
@@ -12,23 +11,23 @@ const VideoGrid = ({ setIsError }) => {
     const { tiktuker } = useParams();
 
     useEffect(() => {
-        getData(`https://tiktok33.p.rapidapi.com/user/feed/${tiktuker}`)
-            .then(data => setVideos(data.length ? data : userFeed.itemList))
+        getData('https://tiktok33.p.rapidapi.com/trending/feed')
+            .then(data => setVideos(data))
             .catch(() => setIsError(true))
             .finally(() => setIsLoading(false));
     }, [tiktuker, setIsError]);
 
     return (
         <StyledVideoGrid className="video-grid">
-            {videos.map(({ stats, video }) => (
-                <div key={video.id} className="flex-item">
+            {videos.map(({ id, covers, playCount }) => (
+                <div key={id} className="flex-item">
                     <img
                         className="image"
-                        src={video.cover}
+                        src={covers.default}
                         alt="TikTuk"
                     />
 
-                    <p className="play-count">{stats.playCount}</p>
+                    <p className="play-count">{playCount}</p>
                 </div>
             ))}
             {isLoading && <Loader />}
