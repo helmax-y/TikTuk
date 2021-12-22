@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import getData from './getData';
 
 const url = 'https://tiktok33.p.rapidapi.com/trending/feed';

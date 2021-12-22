@@ -5,15 +5,13 @@ const apiKey = {
 
 const myAcc = false;
 
-const getData = (url) => (
+const getData = (url) =>
     fetch(url, {
         method: 'GET',
         headers: {
             'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
             'x-rapidapi-key': myAcc ? apiKey.my : apiKey.genesis,
-        }
-    })
-        .then(res => res.json())
-);
+        },
+    }).then((res) => res.json());
 
 export default getData;

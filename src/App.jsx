@@ -4,7 +4,7 @@ import GlobalStyle from './styles';
 import Feed from './components/Feed';
 import Profile from './components/Profile';
 
-function App() {
+const App = function () {
     return (
         <>
             <GlobalStyle />
@@ -17,6 +17,6 @@ function App() {
             </HashRouter>
         </>
     );
-}
+};
 
 export default App;

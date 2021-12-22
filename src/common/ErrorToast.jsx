@@ -2,11 +2,12 @@ import React from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
-const ErrorToast = ({ open }) => {
+const ErrorToast = function ({ open }) {
     return (
         <Snackbar open={open} autoHideDuration={30000}>
             <Alert severity="error">
-                Unfortunately funny videos couldn't be loaded :(<br />
+                Unfortunately funny videos couldn&apos;t be loaded :(
+                <br />
                 Great opportunity to do smth useful!
             </Alert>
         </Snackbar>

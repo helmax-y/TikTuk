@@ -13,7 +13,7 @@ import StyledFeed from './StyledFeed';
 import Loader from '../../common/Loader';
 import ErrorToast from '../../common/ErrorToast';
 
-const Feed = () => {
+const Feed = function () {
     const [posts, setPosts] = useState([]);
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +22,7 @@ const Feed = () => {
 
     useEffect(() => {
         getData('https://tiktok33.p.rapidapi.com/trending/feed')
-            .then(data => setPosts(data))
+            .then((data) => setPosts(data))
             .catch(() => setIsError(true));
     }, []);
 
@@ -35,7 +35,7 @@ const Feed = () => {
         if (target.readyState < 3) {
             return;
         }
-        
+
         if (target.paused) {
             target.play();
             setIsPaused(false);
@@ -63,14 +63,13 @@ const Feed = () => {
                 />
 
                 {isLoading && <Loader />}
-                {isPaused && <PlayArrowIcon className="play-icon" fontSize="large" />}
+                {isPaused && (
+                    <PlayArrowIcon className="play-icon" fontSize="large" />
+                )}
 
                 <p className="post-description">{post.text}</p>
 
-                <Link
-                    className="author"
-                    to={post.authorMeta?.name || '/'}
-                >
+                <Link className="author" to={post.authorMeta?.name || '/'}>
                     <Avatar
                         src={post.authorMeta?.avatar}
                         alt={post.authorMeta?.nickName}
@@ -121,6 +120,6 @@ const Feed = () => {
             <ErrorToast open={isError} />
         </StyledFeed>
     );
-}
+};
 
 export default Feed;

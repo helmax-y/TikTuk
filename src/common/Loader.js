@@ -17,9 +17,9 @@ export default styled.div`
     display: inline-block;
     width: 80px;
     height: 80px;
-    
+
     &:after {
-        content: " ";
+        content: ' ';
         display: block;
         width: 64px;
         height: 64px;

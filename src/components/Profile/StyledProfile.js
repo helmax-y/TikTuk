@@ -12,7 +12,7 @@ export default styled.main`
     }
 
     .avatar {
-        margin: 0 auto;        
+        margin: 0 auto;
     }
 
     .stats {
@@ -23,7 +23,7 @@ export default styled.main`
             flex: 1 0 0;
             padding: 20px 0;
             text-align: center;
-            
+
             &:not(:first-of-type) {
                 border-left: 1px solid lightgrey;
             }
